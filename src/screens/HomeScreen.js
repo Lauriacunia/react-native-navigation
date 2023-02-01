@@ -1,10 +1,17 @@
-import { View, Text } from 'react-native'
+import { View, Text , Button, SafeAreaView} from 'react-native'
 import React from 'react'
 import { StyleSheet } from "react-native";
 
-export default function HomeScreen() {
+export default function HomeScreen(props) {
+  const { navigation } = props;
+
+  const goToPage = (page) => {
+    navigation.navigate(page);
+  };
+
   return (
-    <View>
+    // safeAreaView evita que el contenido se vea por encima de la barra de estado
+    <SafeAreaView>
       <Text style={styles.titulo}>Soy home</Text>
       <Text style={styles.titulo}>Soy home</Text>
       <Text style={styles.titulo}>Soy home</Text>
@@ -15,7 +22,9 @@ export default function HomeScreen() {
       <Text style={styles.titulo}>Soy home</Text>
       <Text style={styles.titulo}>Soy home</Text>
       <Text style={styles.titulo}>Soy home</Text>
-    </View>
+      {/* Importante: envolver la llamada en una arrow funtion-> sino se ejecutara al cargar la pantalla */}
+      <Button title="Ir a settings" onPress={() => goToPage("Settings")} />
+    </SafeAreaView>
   )
 }
 
