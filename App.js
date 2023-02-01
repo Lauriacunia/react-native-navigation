@@ -1,27 +1,19 @@
-import "react-native-gesture-handler";
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import Titulo from "./src/components/Titulo";
+// In App.js in a new project
 
-export default function App() {
+import * as React from 'react';
+import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import NavigationStack from './src/navigation/NavigationStack';
+
+
+function App() {
   return (
     <NavigationContainer>
-      <View style={styles.container}>
-        <Text>App con React Native</Text>
-        <Titulo titulo="piso el titulo default" />
-        <StatusBar style="auto" />
-      </View>
+      <NavigationStack />
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+export default App;
+
+
